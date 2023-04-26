@@ -1,0 +1,10 @@
+.top{
+    margin-top: 20px;
+}
+
+@media (width < 1000){
+    .col-3 {
+        width: 33.33333333%;
+        float: left;
+    }
+}
