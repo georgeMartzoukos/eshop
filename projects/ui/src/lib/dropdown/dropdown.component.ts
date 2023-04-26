@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { MenuItem } from '../app.interfaces';
+import { MenuItem } from '../../../../../src/app/app.interfaces';
 
 @Component({
   selector: 'app-dropdown',

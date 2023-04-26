@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { DropdownComponent } from './dropdown/dropdown.component';
+import { DropdownComponent } from '../../projects/ui/src/lib/dropdown/dropdown.component';
 import { AlertComponent } from './alert/alert.component';
 
 const routes: Routes = [

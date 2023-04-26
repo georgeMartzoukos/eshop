@@ -19,6 +19,14 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
+    "paths": {
+      "shared": [
+        "dist/shared"
+      ],
+      "ui": [
+        "dist/ui"
+      ]
+    },
     "lib": [
       "ES2022",
       "dom"
