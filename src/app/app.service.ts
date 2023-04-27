@@ -5,6 +5,7 @@ import { User, UserAPIUSerOne } from '../../projects/shared/src/lib/user.interfa
 import { Alert } from '../../projects/ui/src/lib/alert/alert.interface';
 import { Router } from '@angular/router';
 
+
 const USER_API = 'http://localhost:3000/api/user'
 
 @Injectable({
@@ -43,7 +44,11 @@ export class AppService {
     this.loggedInSubject.next(false);
     this.loggedInUserFullnameSubject.next('');
     this.loggedInUsername.next('');
-    this.router.navigate
+    
+  }
+
+  getLoggedInUserName() {
+    return this.loggedInUsername.value;
   }
 
   alerts: Alert[] = [];

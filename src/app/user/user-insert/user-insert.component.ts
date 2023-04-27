@@ -55,12 +55,7 @@ export class UserInsertComponent {
         console.log(response);
         
       });
-      this.form.setValue({
-        product: '',
-        description: '',
-        cost: '',
-        quantity: ''
-      })
+      this.form.reset();
     } else {
       console.log('Form is not valid');
     }

@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
+
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from '../../projects/ui/src/lib/page-not-found/page-not-found.component';
 import { DropdownComponent } from '../../projects/ui/src/lib/dropdown/dropdown.component';
 import { AlertComponent } from '../../projects/ui/src/lib/alert/alert.component';
+import { MyProductsComponent } from './products/my-products/my-products.component';
 
 const routes: Routes = [
   {
@@ -31,7 +33,7 @@ const routes: Routes = [
     AppComponent,
     PageNotFoundComponent,
     DropdownComponent,
-    AlertComponent,
+    AlertComponent
   ],
   imports: [BrowserModule, RouterModule.forRoot(routes),HttpClientModule],
   providers: [],

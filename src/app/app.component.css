@@ -1,0 +1,23 @@
+.navbar {
+    border-bottom: 1px solid #333333;
+    margin-top: 0;
+}
+
+.navbar-brand {
+    font-family: 'Poiret One', cursive;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: white!important;
+    font-size: 1.2rem;
+}
+
+.nav-link:hover {
+    color: rgb(209, 212, 212)!important;
+}
+
+.bg-dark {
+    background-color: #006994!important;
+}

@@ -4,10 +4,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NgModule } from '@angular/core';
+import { ProductsListComponent } from '../products/products-list/products-list.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: '', component: WelcomeComponent },
+  { path:'' , component: WelcomeComponent },
 ];
 
 @NgModule({

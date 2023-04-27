@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Product, ProductAPIList } from '../../../projects/shared/src/lib/product.interfaces';
+import { MyProductAPIList, Product, ProductAPIList } from '../../../projects/shared/src/lib/product.interfaces';
 import { delay } from 'rxjs';
 
 const USER_API = 'http://localhost:3000/api/product'
+const PRODUCT_USER = "http://localhost:3000/api/userproducts"
 
 @Injectable()
 export class ProductService {
@@ -20,6 +21,6 @@ export class ProductService {
   }
 
   userProducts(username: string) {
-    return this.http.get<ProductAPIList>(`${USER_API}/findOne/${username}`)
+    return this.http.get<MyProductAPIList>(`${PRODUCT_USER}/findOne/${username}`)
   }
 }

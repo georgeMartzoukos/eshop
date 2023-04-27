@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { ProductService } from './product.service';
 
 import { ProductInsertComponent } from './product-insert/product-insert.component';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { MyProductsComponent } from './my-products/my-products.component';
+import { AppService } from '../app.service';
+
+
 
 const routes: Routes = [
   { path: 'list', component: ProductsListComponent },
@@ -19,10 +23,11 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     ProductInsertComponent,
-    ProductsListComponent
+    ProductsListComponent,
+    MyProductsComponent
   ],
   imports: [
-    CommonModule, RouterModule.forChild(routes), HttpClientModule, ReactiveFormsModule
+    CommonModule, RouterModule.forChild(routes), HttpClientModule, ReactiveFormsModule,NgIf
   ],
   providers: [
     ProductService
