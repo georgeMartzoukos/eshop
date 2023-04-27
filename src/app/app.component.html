@@ -10,16 +10,26 @@
           }}</a></strong
         >
       </span>
-      <span> </span>
+      <span *ngIf="!(isLoggedIn$ | async); else fullname"></span>
+      <ng-template #fullname>
+        <span> Hello {{ loggedInUserFullname$ | async }}</span>
+        <button class="ms-2 btn btn-danger btn-sm" (click)="logout()">
+          Logout
+        </button>
+      </ng-template>      
+      
       <ul *ngIf="isLoggedIn$ | async; else loggedOut" class="navbar-nav">
         <app-dropdown
           [dropdownLabel]="'Users'"
           [items]="usersMenu"
         ></app-dropdown>
-        <app-dropdown
+        
+        <app-dropdown 
+        
           [dropdownLabel]="'Products'"
           [items]="productsMenu"
         ></app-dropdown>
+        
       </ul>
       <ng-template #loggedOut>
         <a class="btn btn-primary btn-sm" routerLink="/login">Login</a>
@@ -30,3 +40,4 @@
     <router-outlet></router-outlet>
   </div>
 </div>
+

@@ -4,9 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from '../../projects/ui/src/lib/page-not-found/page-not-found.component';
 import { DropdownComponent } from '../../projects/ui/src/lib/dropdown/dropdown.component';
-import { AlertComponent } from './alert/alert.component';
+import { AlertComponent } from '../../projects/ui/src/lib/alert/alert.component';
 
 const routes: Routes = [
   {

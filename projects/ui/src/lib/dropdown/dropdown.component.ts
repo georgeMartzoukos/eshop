@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { MenuItem } from '../../../../../src/app/app.interfaces';
+import { MenuItem } from '../../../../shared/src/lib/app.interfaces';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dropdown',
@@ -9,4 +10,7 @@ import { MenuItem } from '../../../../../src/app/app.interfaces';
 export class DropdownComponent {
   @Input() items: MenuItem[] = [{ text: 'sample text', link: 'sample-link' }];
   @Input() dropdownLabel = 'Dropdown';
+  
+
+  
 }

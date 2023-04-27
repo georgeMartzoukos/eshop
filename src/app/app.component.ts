@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { MenuItem } from './app.interfaces';
+import { MenuItem } from '../../projects/shared/src/lib/app.interfaces';
 import { AppService } from './app.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -19,11 +20,19 @@ export class AppComponent {
   productsMenu: MenuItem[] = [
     { text: 'List all Products', link: 'product/list' },
     { text: 'Insert a Product', link: 'product/insert' },
-    { text: 'Delete a Product', link: 'not-implemented-yet' },
+    { text: 'View my Products', link: 'myProducts'},
     { text: 'Update a Product', link: 'not-implemented-yet' },
   ];
-
+   
   isLoggedIn$ = this.service.isLoggedIn$;
+  loggedInUserFullname$ = this.service.loggedInUserFullname$;
+  
+  loggedInUsername$ = this.service.loggedInUsername$;
+
   constructor(private service: AppService){};
+  
+  logout() {
+    this.service.logout();
+  }
 
 }

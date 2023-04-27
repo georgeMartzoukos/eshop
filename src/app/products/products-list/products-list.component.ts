@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
-import { Product, ProductAPIList } from '../product.interfaces';
+import { Product, ProductAPIList } from '../../../../projects/shared/src/lib/product.interfaces';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./products-list.component.css']
 })
 export class ProductsListComponent implements OnInit, OnDestroy {
+  
     constructor(private productService: ProductService) {}
 
     loading = false;

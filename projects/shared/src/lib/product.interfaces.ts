@@ -9,3 +9,8 @@ export interface ProductAPIList {
     status: boolean;
     data: Product[];
 }
+
+export interface UsersProducts {
+    status: boolean;
+    data:  Product[];
+}

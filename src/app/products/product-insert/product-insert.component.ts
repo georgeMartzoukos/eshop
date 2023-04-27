@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductService } from '../product.service';
-import { Product } from '../product.interfaces';
+import { Product } from '../../../../projects/shared/src/lib/product.interfaces';
 import { Router } from '@angular/router';
 
 

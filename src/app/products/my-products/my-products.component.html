@@ -1,0 +1,40 @@
+<div *ngIf="loading" class="mt-2 row alert alert-info">
+    Loading Products...
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only"></span>
+    </div>
+  </div>
+  
+  <div *ngIf="myProductsList.length">
+    <table class="table table-striped">
+      <thead>
+        <th scope="col">
+            Product
+        </th>
+        <th scope="col">
+            description
+        </th>
+        <th scope="col">
+             Cost
+        </th>
+        <th scope="col">Quantity</th>
+       
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of myProductsList">
+          <td>
+            {{ product.username }}
+          </td>
+          <td>
+            {{ product.name }}
+          </td>
+          <td>
+            {{ product.surname }}
+          </td>
+          <td>
+            {{ product.email }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
