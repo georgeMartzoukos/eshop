@@ -3,6 +3,7 @@ import { MenuItem } from '../../projects/shared/src/lib/app.interfaces';
 import { AppService } from './app.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @Component({
