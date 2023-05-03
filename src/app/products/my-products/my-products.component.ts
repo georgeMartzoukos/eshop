@@ -23,6 +23,7 @@ export class MyProductsComponent implements OnDestroy, OnInit {
   ngOnInit(): void {
       console.log('Starting "findAll" API call');
       this.loadingP = true;
+      console.log(this.username)
       this.subscription = this.productService
           .userProducts(this.username)
           .subscribe({

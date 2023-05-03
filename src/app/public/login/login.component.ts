@@ -25,6 +25,6 @@ export class LoginComponent {
     console.log(this.form.value);
     const { username, password } = this.form.value;
     this.service.login(username, password);
-    this.router.navigate(['/']);
+    this.router.navigate(['/product/list']);
   }
 }

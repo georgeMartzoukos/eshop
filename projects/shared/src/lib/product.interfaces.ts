@@ -21,3 +21,10 @@ export interface MyProductAPIList {
       products: Product[];
     };
   }
+
+ 
+  
+  export interface Cart {
+    cartList: Product[];
+  }
+    

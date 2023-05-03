@@ -36,7 +36,7 @@ export class AppComponent {
   
   logout() {
     this.service.logout();
-    this.router.navigate(["/login"])
+    this.router.navigate(["/product/list"])
   }
 
 }

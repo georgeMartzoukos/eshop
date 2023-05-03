@@ -10,7 +10,9 @@ import { ProductService } from './product.service';
 import { ProductInsertComponent } from './product-insert/product-insert.component';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { MyProductsComponent } from './my-products/my-products.component';
-import { AppService } from '../app.service';
+import { ProductPageComponent } from './product-page/product-page.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+
 
 
 
@@ -24,7 +26,9 @@ const routes: Routes = [
   declarations: [
     ProductInsertComponent,
     ProductsListComponent,
-    MyProductsComponent
+    MyProductsComponent,
+    ProductPageComponent,
+    ShoppingCartComponent
   ],
   imports: [
     CommonModule, RouterModule.forChild(routes), HttpClientModule, ReactiveFormsModule,NgIf

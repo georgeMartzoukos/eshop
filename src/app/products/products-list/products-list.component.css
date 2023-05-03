@@ -8,3 +8,12 @@
         float: left;
     }
 }
+
+.buttons{
+    justify-content: space-between;
+
+}
+
+.btn-danger {
+    margin-left: 100px;
+}

@@ -5,10 +5,11 @@ import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NgModule } from '@angular/core';
 import { ProductsListComponent } from '../products/products-list/products-list.component';
+import { ProductInsertComponent } from '../products/product-insert/product-insert.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path:'' , component: WelcomeComponent },
+  { path:'' , component:  ProductsListComponent },
 ];
 
 @NgModule({

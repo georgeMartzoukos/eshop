@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MyProductAPIList, Product, ProductAPIList } from '../../../projects/shared/src/lib/product.interfaces';
+import { MyProductAPIList, Product, ProductAPIList , Cart} from '../../../projects/shared/src/lib/product.interfaces';
 import { delay } from 'rxjs';
 
 const USER_API = 'http://localhost:3000/api/product'
@@ -8,7 +8,6 @@ const PRODUCT_USER = "http://localhost:3000/api/userproducts"
 
 @Injectable()
 export class ProductService {
-  [x: string]: any;
 
   constructor(private http: HttpClient) { }
 
@@ -22,5 +21,15 @@ export class ProductService {
 
   userProducts(username: string) {
     return this.http.get<MyProductAPIList>(`${PRODUCT_USER}/findOne/${username}`)
+  }
+
+  purchase(cartList: { cartList: Product[] }, username: string) {
+    return this.http.post(`${PRODUCT_USER}/buy/${username}`, cartList)
+  }
+
+  favourites(product: string, username: string) {
+    console.log("service product: ",product)
+    return this.http.post<String>(`${PRODUCT_USER}/create/${username}`, product)
+
   }
 }
