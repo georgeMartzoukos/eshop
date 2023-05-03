@@ -7,6 +7,13 @@
         </div>
     </div>
 
+    <div *ngIf="cartList.length" >
+        <div></div>
+        <button (click)="buy()" class="btn btn-primary">
+            <a> buy </a>
+        </button>
+    </div>
+
     <div class="row " *ngIf="productList.length">
         <div class="col" *ngFor="let product of productList">
             <div class="card top" style="width: 18rem;">
@@ -16,8 +23,15 @@
                 <h5 class="card-title"> {{ product.product }} </h5>
                 <h5 class="card-title"> {{ product.cost }} $ </h5>
                 <p class="card-text"> {{ product.description}} </p>
-
-                <a  class="btn btn-primary"> Buy </a>
+                <div class="buttons">
+                    <button (click)="addToCart(this.product)" class="btn btn-primary">
+                        <a> Add to Cart </a>
+                    </button>
+                    <button (click)="addToFavourites(this.product.product)" class="btn btn-danger">
+                        <a > <i class="fa-regular fa-heart"></i></a>
+                    </button>
+                </div>
+                
                 </div>
             </div>
         </div>
