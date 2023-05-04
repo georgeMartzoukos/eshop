@@ -9,32 +9,37 @@
 
     <div *ngIf="cartList.length" >
         <div></div>
-        <button (click)="buy()" class="btn btn-primary">
-            <a> buy </a>
+        <button (click)="checkout()" class="btn btn-primary">
+            <a> Checkout </a>
         </button>
     </div>
 
-    <div class="row " *ngIf="productList.length">
+    <div class="row" *ngIf="productList.length">
         <div class="col" *ngFor="let product of productList">
-            <div class="card top" style="width: 18rem;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930" 
-                class="card-img-top" alt="...">
-                <div class="card-body">
-                <h5 class="card-title"> {{ product.product }} </h5>
-                <h5 class="card-title"> {{ product.cost }} $ </h5>
-                <p class="card-text"> {{ product.description}} </p>
-                <div class="buttons">
-                    <button (click)="addToCart(this.product)" class="btn btn-primary">
-                        <a> Add to Cart </a>
-                    </button>
-                    <button (click)="addToFavourites(this.product.product)" class="btn btn-danger">
-                        <a > <i class="fa-regular fa-heart"></i></a>
-                    </button>
-                </div>
-                
-                </div>
+          <div class="card top" style="width: 18rem;">
+            <ng-container *ngIf="product.image; else imageLink">
+              <img [src]="product.image" class="card-img-top" alt="...">
+            </ng-container>
+            <ng-template #imageLink>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930" class="card-img-top" alt="...">
+            </ng-template>
+            
+            <div class="card-body">
+              <h5 class="card-title">{{ product.product }}</h5>
+              <h5 class="card-title">{{ product.cost }} $</h5>
+              
+              <div class="buttons">
+                <button (click)="addToCart(this.product)" class="btn btn-primary">
+                  <a>Add to Cart</a>
+                </button>
+                <button (click)="addToFavourites(this.product.product)" class="btn btn-danger">
+                  <a><i class="fa-regular fa-heart"></i></a>
+                </button>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
+      
 </div>
 

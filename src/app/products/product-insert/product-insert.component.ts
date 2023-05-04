@@ -18,7 +18,8 @@ export class ProductInsertComponent {
       product: ['', [Validators.required]],
       description: [''],
       cost: ['',[Validators.required]],
-      quantity: ['', [Validators.required]]
+      quantity: ['', [Validators.required]],
+      image: ['']
     })
   }
 

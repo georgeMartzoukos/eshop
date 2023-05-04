@@ -39,4 +39,8 @@ export class AppComponent {
     this.router.navigate(["/product/list"])
   }
 
+  goToProducts() {
+    this.router.navigate(["/product/list"])
+  }
+
 }

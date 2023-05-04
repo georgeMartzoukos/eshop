@@ -12,6 +12,7 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { MyProductsComponent } from './my-products/my-products.component';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
 
 
 
@@ -19,7 +20,8 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 const routes: Routes = [
   { path: 'list', component: ProductsListComponent },
   { path: 'insert', component: ProductInsertComponent },
-  { path: 'myProducts', component: MyProductsComponent}
+  { path: 'myProducts', component: MyProductsComponent},
+  { path: 'my-cart', component: ShoppingCartComponent}
 ]
 
 @NgModule({
@@ -28,7 +30,8 @@ const routes: Routes = [
     ProductsListComponent,
     MyProductsComponent,
     ProductPageComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    ThankYouComponent
   ],
   imports: [
     CommonModule, RouterModule.forChild(routes), HttpClientModule, ReactiveFormsModule,NgIf

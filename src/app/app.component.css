@@ -2,12 +2,19 @@
     border-bottom: 1px solid #333333;
     margin-top: 0;
     background-color: #006994!important;
+ 
 }
+.navbar-collapse .navbar .collapse {
+    display: flex;
+    justify-content: space-between;
+  }
+  
 
 .navbar-brand {
     font-family: 'Poiret One', cursive;
     font-size: 2rem;
     font-weight: bold;
+    justify-content: space-between!important;
 }
 
 .nav-link {
@@ -21,4 +28,9 @@
 
 .bg-dark {
     background-color: #006994!important;
+}
+
+.logoBtn {
+    background-color: #006994;
+    border: none;
 }

@@ -3,6 +3,7 @@ import { ProductService } from '../product.service';
 import { MyProductAPIList, Product, ProductAPIList, Cart } from '../../../../projects/shared/src/lib/product.interfaces';
 import { Subscription } from 'rxjs';
 import { AppService } from 'src/app/app.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,8 +12,9 @@ import { AppService } from 'src/app/app.service';
   styleUrls: ['./products-list.component.css']
 })
 export class ProductsListComponent implements OnInit, OnDestroy {
+    
   
-    constructor(private productService: ProductService, private service: AppService) {}
+    constructor(private productService: ProductService, private service: AppService, private router: Router) {}
 
     loading = false;
     productList: Product[] = [];
@@ -23,24 +25,29 @@ export class ProductsListComponent implements OnInit, OnDestroy {
     
 
     ngOnInit(): void {
-        console.log('Starting "findAll" API call');
-        console.log(this.username)
-        this.loading = true;
-        this.subscription = this.productService.findAll().subscribe({
-          next: (apiData: ProductAPIList) => {
-            const { status , data } = apiData;
-            this.productList = data;
-            console.log(status, data)
-          },
-          error: (error) => {
-            this.loading = false;
-            console.log(error);
-          },
-          complete: () => {
-            this.loading = false;
-            console.log('API call completed')
-          }
-        });
+      this.productService.getCartList().subscribe((cartList: Product[]) => {
+        this.cartList = cartList;
+        console.log("but why?" + JSON.stringify(this.cartList))
+      });
+
+      console.log('Starting "findAll" API call');
+      console.log(this.username)
+      this.loading = true;
+      this.subscription = this.productService.findAll().subscribe({
+        next: (apiData: ProductAPIList) => {
+          const { status , data } = apiData;
+          this.productList = data;
+          console.log(status, data)
+        },
+        error: (error) => {
+          this.loading = false;
+          console.log(error);
+        },
+        complete: () => {
+          this.loading = false;
+          console.log('API call completed')
+        }
+      });
     }
 
     ngOnDestroy(): void {
@@ -61,24 +68,11 @@ export class ProductsListComponent implements OnInit, OnDestroy {
         product.quantity = 1;
         this.cartList.push(product);
       }
-
-      console.log("my cart!!!!");
-      // this.cartList.forEach(p => {
-      //   console.log(`${p.product} - ${p.quantity}`);
-      // });
-
-      console.log( this.cartList);
+      this.productService.updateCartList(this.cartList)
     }
 
-    buy() {
-      console.log("my cart!", this.cartList)
-      const data = {
-        cartList: this.cartList
-      }
-      this.productService.purchase(data, this.service.getLoggedInUserName()).subscribe((response) => {
-        console.log(response)
-      })
-      this.cartList = [];
+    checkout() {   
+      this.router.navigate(["product/my-cart"]);
     }
 
 

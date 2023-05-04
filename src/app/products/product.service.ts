@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MyProductAPIList, Product, ProductAPIList , Cart} from '../../../projects/shared/src/lib/product.interfaces';
-import { delay } from 'rxjs';
+import { BehaviorSubject, delay } from 'rxjs';
 
 const USER_API = 'http://localhost:3000/api/product'
 const PRODUCT_USER = "http://localhost:3000/api/userproducts"
@@ -10,6 +10,8 @@ const PRODUCT_USER = "http://localhost:3000/api/userproducts"
 export class ProductService {
 
   constructor(private http: HttpClient) { }
+  private cartList = new BehaviorSubject<Product[]>([]);
+  cartList$ = this.cartList.asObservable();
 
   findAll() {
     return this.http.get<ProductAPIList>(`${USER_API}/findAll`).pipe(delay(500));
@@ -31,5 +33,16 @@ export class ProductService {
     console.log("service product: ",product)
     return this.http.post<String>(`${PRODUCT_USER}/create/${username}`, product)
 
+  }
+
+
+  updateCartList(cartList: Product[]) {
+    this.cartList.next(cartList);
+    console.log("heyoopopp" + (this.cartList))
+    
+  }
+
+  getCartList() {
+    return  this.cartList$;
   }
 }
