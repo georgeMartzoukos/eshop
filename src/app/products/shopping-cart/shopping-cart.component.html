@@ -36,24 +36,25 @@
                             <ng-template #imageLink>
                               <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930" class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;" alt="...">
                             </ng-template>
-                            <!-- <img
-                              [src]="product.image"
-                              class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;"> -->
+                          
                           </div>
                           <div class="ms-3">
                             <h5> {{product.product}}</h5>
-                            <!-- <p class="small mb-0">256GB, Navy Blue</p> -->
+                            
                           </div>
                         </div>
                         <div class="d-flex flex-row align-items-center">
+                          <button (click)="minusQuantity(product.product, product.cost)" *ngIf="product.quantity > 0">-</button>
                           <div style="width: 50px;">
                             <h5 class="fw-normal mb-0">{{ product.quantity }}</h5>
                           </div>
+                          <button class="quantityBtn plus" (click)="plusQuantity(product.product, product.cost)" >+</button>
+                          
                           <div style="width: 80px;">
                             <h5 class="mb-0">{{ product.quantity * product.cost}}</h5>
                           </div>
-                          <button (click)="removeFromCart(product)" >
-                            <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+                          <button class="trash" >
+                            <a (click)="removeFromCart(product,product.quantity * product.cost )" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
                           </button>
                         </div>
                       </div>
@@ -135,7 +136,8 @@
                     <button (click)="buy()" type="button" class="btn btn-info btn-block btn-lg">
                       <div class="d-flex justify-content-between">
                         <span>$ {{ checkoutCost }}</span>
-                        <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                        <span>    </span>
+                        <span> Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
                       </div>
                     </button>
 

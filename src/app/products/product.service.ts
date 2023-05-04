@@ -13,6 +13,9 @@ export class ProductService {
   private cartList = new BehaviorSubject<Product[]>([]);
   cartList$ = this.cartList.asObservable();
 
+  private totalCost = new BehaviorSubject<number>(0);
+  totalCost$ = this.totalCost.asObservable();
+
   findAll() {
     return this.http.get<ProductAPIList>(`${USER_API}/findAll`).pipe(delay(500));
   }
@@ -40,6 +43,15 @@ export class ProductService {
     this.cartList.next(cartList);
     console.log("heyoopopp" + (this.cartList))
     
+  }
+
+  updateTotalCost( totalCost: number) {
+    this.totalCost.next(totalCost);
+    console.log("total cost = ", totalCost)
+  }
+
+  getTotalCost() {
+    return this.totalCost$;
   }
 
   getCartList() {

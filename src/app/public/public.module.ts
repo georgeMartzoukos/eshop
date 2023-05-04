@@ -6,6 +6,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { NgModule } from '@angular/core';
 import { ProductsListComponent } from '../products/products-list/products-list.component';
 import { ProductInsertComponent } from '../products/product-insert/product-insert.component';
+import { ProductService } from '../products/product.service';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -15,5 +16,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [LoginComponent, WelcomeComponent],
   imports: [CommonModule, ReactiveFormsModule, RouterModule.forChild(routes)],
+  providers: [
+    ProductService
+  ]
 })
 export class PublicModule {}

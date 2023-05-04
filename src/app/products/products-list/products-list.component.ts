@@ -22,6 +22,8 @@ export class ProductsListComponent implements OnInit, OnDestroy {
     cartList: Product[] = [];
     username = this.service.getLoggedInUserName();
     favourite = false;
+    totalCost: number = 0
+    
     
 
     ngOnInit(): void {
@@ -29,6 +31,10 @@ export class ProductsListComponent implements OnInit, OnDestroy {
         this.cartList = cartList;
         console.log("but why?" + JSON.stringify(this.cartList))
       });
+
+      this.productService.getTotalCost().subscribe((totalCost: number) => {
+        this.totalCost  = totalCost;
+      })
 
       console.log('Starting "findAll" API call');
       console.log(this.username)
@@ -69,6 +75,7 @@ export class ProductsListComponent implements OnInit, OnDestroy {
         this.cartList.push(product);
       }
       this.productService.updateCartList(this.cartList)
+      // this.productService.updateTotalCost(this.costSum())
     }
 
     checkout() {   
@@ -83,7 +90,9 @@ export class ProductsListComponent implements OnInit, OnDestroy {
       })
     }
 
-  
+    // costSum() {
+    //   return this.cartList.reduce((acc, cur) => acc + cur.cost * cur.quantity, 0)
+    // }
 
   
 }

@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary justify-content-between">
   <div class="container-fluid justify-content-between">
     <button (click)="goToProducts()" class="logoBtn">
-      <a  class="navbar-brand" href="#"> My Coffe Shop </a>
+      <a  class="navbar-brand" > My Coffe Shop </a>
     </button>
     <span *ngIf="!(isLoggedIn$ | async); else fullname"></span>
       <ng-template #fullname>

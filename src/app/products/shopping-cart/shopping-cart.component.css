@@ -8,3 +8,16 @@
     background-color: white!important;
     border: none;
 }
+
+.quantityBtn {
+    background-color: white!important;
+    border: none;
+}
+
+.plus {
+    margin-left: 0px;
+}
+
+.trash {
+    border: none;
+}
