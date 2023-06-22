@@ -3,6 +3,7 @@ import { MyProductAPIList, Product, ProductAPIList } from 'projects/shared/src/l
 import { Subscription } from 'rxjs';
 import { ProductService } from '../product.service';
 import { AppService } from 'src/app/app.service';
+import { Router } from '@angular/router';
 
 
 
@@ -12,7 +13,7 @@ import { AppService } from 'src/app/app.service';
   styleUrls: ['./my-products.component.css']
 })
 export class MyProductsComponent implements OnDestroy, OnInit {
-  constructor(private productService: ProductService, private service: AppService) {}
+  constructor(private productService: ProductService, private service: AppService,private router: Router) {}
 
   loadingP = false;
   myProductsList: Product[] = [];
@@ -21,7 +22,7 @@ export class MyProductsComponent implements OnDestroy, OnInit {
   
 
   ngOnInit(): void {
-      console.log('Starting "findAll" API call');
+      console.log('Starting "get Favourites" API call');
       this.loadingP = true;
       console.log(this.username)
       this.subscription = this.productService
@@ -42,6 +43,15 @@ export class MyProductsComponent implements OnDestroy, OnInit {
         }
       });
   }
+
+  removeFromFav(productToBeRemoved: Product) {
+    this.productService.removeFavourites({ product: productToBeRemoved.product }, this.service.getLoggedInUserName()).subscribe((response) => {
+      console.log(response);
+    })
+    this.myProductsList = this.myProductsList.filter((p) => p.product !== productToBeRemoved.product)
+    this.router.navigate(["product/myProducts"])
+  }
+  
 
   ngOnDestroy(): void {
       this.subscription?.unsubscribe();

@@ -28,4 +28,11 @@ export interface MyProductAPIList {
   export interface Cart {
     cartList: Product[];
   }
+
+  export interface favouriteProducts {
+    products: {
+      product: string,
+      image: string
+    }
+  }
     

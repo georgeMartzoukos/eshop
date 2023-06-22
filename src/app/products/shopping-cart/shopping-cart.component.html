@@ -44,14 +44,15 @@
                           </div>
                         </div>
                         <div class="d-flex flex-row align-items-center">
-                          <button (click)="minusQuantity(product.product, product.cost)" *ngIf="product.quantity > 0">-</button>
-                          <div style="width: 50px;">
+                          <button class="quantityBtn" (click)="minusQuantity(product.product, product.cost)" *ngIf="product.quantity > 0">-</button>
+                          <div style="width: 10px; display: flex;">
                             <h5 class="fw-normal mb-0">{{ product.quantity }}</h5>
                           </div>
                           <button class="quantityBtn plus" (click)="plusQuantity(product.product, product.cost)" >+</button>
+
                           
-                          <div style="width: 80px;">
-                            <h5 class="mb-0">{{ product.quantity * product.cost}}</h5>
+                          <div style="width: 80px; margin-left: 100px;">
+                            <h5 class="mb-0">{{ product.quantity * product.cost}} $</h5>
                           </div>
                           <button class="trash" >
                             <a (click)="removeFromCart(product,product.quantity * product.cost )" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>

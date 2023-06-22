@@ -1,4 +1,4 @@
-<div class="wid">
+<div class="wid container-lg">
 
   <div *ngIf="loadingP" class="mt-2 row alert alert-info">
     Loading Products...
@@ -10,30 +10,30 @@
   <div *ngIf="myProductsList.length">
     <table class="table table-striped">
       <thead>
-        <th scope="col">Product</th>
-        <th scope="col">description</th>
-        <th scope="col">Cost</th>
-        <th scope="col">Quantity</th>
+        <th > My Favourite Products</th> 
       </thead>
       <tbody>
         <tr *ngFor="let product of myProductsList">
           <td>
             {{ product.product }}
           </td>
-          <td>
-            {{ product.description }}
+          <td >
+            <ng-container *ngIf="product.image; else imageLink">
+              <img [src]="product.image" class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;" alt="...">
+            </ng-container>
+            <ng-template #imageLink>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930" class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;" alt="...">
+            </ng-template>          
           </td>
           <td>
-            {{ product.cost }}
+            <button (click)="removeFromFav(product)" class="btn btn-danger">Remove</button>
           </td>
-          <td>
-            {{ product.quantity }}
-          </td>
+         
         </tr>
       </tbody>
     </table>
-  </div>
-
 </div>
+
+ </div>
 
 

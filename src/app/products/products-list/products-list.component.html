@@ -32,7 +32,7 @@
                 <button (click)="addToCart(this.product)" class="btn btn-primary">
                   <a>Add to Cart</a>
                 </button>
-                <button (click)="addToFavourites(this.product.product)" class="btn btn-danger">
+                <button *ngIf="isFavourite(this.product.product)" (click)="addToFavourites(this.product)" class="btn btn-danger">
                   <a><i class="fa-regular fa-heart"></i></a>
                 </button>
               </div>

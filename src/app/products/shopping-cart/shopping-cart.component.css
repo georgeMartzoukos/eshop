@@ -12,6 +12,8 @@
 .quantityBtn {
     background-color: white!important;
     border: none;
+    font-weight: 600;
+    font-size: 1.5rem;
 }
 
 .plus {

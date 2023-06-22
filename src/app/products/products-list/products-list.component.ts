@@ -23,13 +23,13 @@ export class ProductsListComponent implements OnInit, OnDestroy {
     username = this.service.getLoggedInUserName();
     favourite = false;
     totalCost: number = 0
+    favouriteProducts: Product[] = [] ;
     
     
 
     ngOnInit(): void {
       this.productService.getCartList().subscribe((cartList: Product[]) => {
         this.cartList = cartList;
-        console.log("but why?" + JSON.stringify(this.cartList))
       });
 
       this.productService.getTotalCost().subscribe((totalCost: number) => {
@@ -53,7 +53,12 @@ export class ProductsListComponent implements OnInit, OnDestroy {
           this.loading = false;
           console.log('API call completed')
         }
-      });
+      }); 
+      
+
+      
+      
+     
     }
 
     ngOnDestroy(): void {
@@ -83,16 +88,43 @@ export class ProductsListComponent implements OnInit, OnDestroy {
     }
 
 
-    addToFavourites(product: string) {
+     addToFavourites(product: Product) {
       console.log(product)
-      this.productService.favourites(product, this.service.getLoggedInUserName()).subscribe((response) => {
+      const fProd = {
+        products: product,
+        username: this.service.getLoggedInUserName()
+      }
+      this.productService.addFavourites(fProd ).subscribe((response) => {
         console.log(response)
       })
     }
 
-    // costSum() {
-    //   return this.cartList.reduce((acc, cur) => acc + cur.cost * cur.quantity, 0)
-    // }
+    isFavourite(product: string) {
+      console.log('Starting "get Favourites" API call');
+      
+      console.log(this.username)
+      this.subscription = this.productService
+          .userProducts(this.username)
+          .subscribe({
+        next: (apiData: MyProductAPIList) => {
+          const { status , data } = apiData;
+          this.favouriteProducts = data.products;
+          console.log(status, data)
+        },
+        error: (error: any) => {
+          
+          console.log(error);
+        },
+        complete: () => {
+          
+          console.log('API call completed')
+        }
+      });
+      this.favouriteProducts
+      console.log("my products :" , this.favouriteProducts)
+      return true;
+      
+    }
 
-  
+   
 }
