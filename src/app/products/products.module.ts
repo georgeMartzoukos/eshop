@@ -20,7 +20,7 @@ import { ThankYouComponent } from './thank-you/thank-you.component';
 const routes: Routes = [
   { path: 'list', component: ProductsListComponent },
   { path: 'insert', component: ProductInsertComponent },
-  { path: 'myProducts', component: MyProductsComponent},
+  // { path: 'myProducts', component: MyProductsComponent},
   { path: 'my-cart', component: ShoppingCartComponent}
 ]
 
@@ -28,7 +28,7 @@ const routes: Routes = [
   declarations: [
     ProductInsertComponent,
     ProductsListComponent,
-    MyProductsComponent,
+    // MyProductsComponent,
     ProductPageComponent,
     ShoppingCartComponent,
     ThankYouComponent

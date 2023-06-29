@@ -17,3 +17,8 @@
 .btn-danger {
     margin-left: 100px;
 }
+
+.btn-primary{
+    background-color: rgb(110, 197, 22);
+    border: none;
+}
